@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025학년도 4학년 과학 수업 지원 도우미</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -110px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* 스크롤바 스타일 (선택 사항) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-600">2025학년도 4학년 과학 교육과정 편성 도우미</h1>
+            <p class="mt-2 text-lg text-gray-600">2015 개정 교육과정(3학년) → 2022 개정 교육과정(4학년) 연계 지도 안내(with 양산교육지원청)</p>
+        </header>
+
+        <section class="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-green-600">도우미 앱 활용 안내</h2>
+            <p class="mb-3">본 자료는 2025학년도에 4학년 과학을 지도하시는 선생님들을 위해 제작되었습니다. 2015 개정 교육과정으로 3학년을 이수한 학생들이 2022 개정 교육과정으로 4학년 과학을 학습할 때 발생할 수 있는 단원 중복 및 결손을 최소화하고, 효과적인 보충 지도를 지원하는 것을 목표로 합니다.</p>
+            <p class="mb-4">아래 내용을 통해 변경되는 교육과정을 확인하시고, 학생들의 학습 결손이 발생하지 않도록 수업에 참고해 주시기 바랍니다.</p>
+            <a href="https://script.google.com/macros/s/AKfycbzpILJ3hMgcc5F36AyLrjHOWdaEHhs-X3Rk2q87XVzw5FwfKtQ9MRTdHT-gqFQJ11UbZA/exec" target="_blank" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg shadow transition duration-300 ease-in-out transform hover:scale-105">
+                2025학년도 4학년 과학 결손단원 자가진단 바로가기
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </section>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="border-b border-gray-200 mb-6">
+                <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                    <button onclick="openTab(event, 'comparison')" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-blue-500 text-blue-600">
+                        교육과정 변동 사항
+                    </button>
+                    <button onclick="openTab(event, 'guidance')" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                        신설/변경 단원별 지도 가이드
+                    </button>
+                </nav>
+            </div>
+
+            <div id="comparison" class="tab-content active">
+                <h2 class="text-2xl font-semibold mb-6 text-center text-purple-600">2025학년도 4학년 과학, 무엇이 달라지나요?</h2>
+                <p class="text-center mb-8 text-gray-700">2015 개정 교육과정(3학년)에서 학습한 내용과 2022 개정 교육과정(4학년) 내용을 비교하여 중복 학습 예상 단원과 보충 학습 필요 단원을 안내합니다.</p>
+
+                <div class="mb-10 p-4 border border-orange-300 rounded-lg bg-orange-50">
+                    <h3 class="text-xl font-semibold mb-3 text-orange-700">⚠️ 중복 학습 예상 단원 (2022 개정 4학년)</h3>
+                    <p class="mb-4 text-sm text-orange-600">학생들이 2015 개정 3학년 과정에서 이미 학습한 내용이 포함된 단원입니다. 기본 개념을 복습하고 심화 탐구 활동으로 연계하는 것을 권장합니다. 결손 단원 지도를 위해 재구성 할 수 있습니다.</p>
+                    <div class="overflow-x-auto rounded-lg shadow">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-orange-200">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-orange-800 uppercase tracking-wider">2022 개정 4학년 단원</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-orange-800 uppercase tracking-wider">2015 개정 3학년 관련 내용</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-orange-800 uppercase tracking-wider">지도 Tip</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(9) 자석의 이용</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">자석의 성질, 자석에 붙는 물체</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">자석과 자석에 붙는 물체의 상호작용(인력, 척력)을 중심으로 심화 탐구. 나침반 관련 내용은 축소되었으므로 참고.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(11) 땅의 변화</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">지표의 변화(흐르는 물, 흙), 화산과 지진의 영향</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">2015 개정 '지표의 변화'와 '화산과 지진' 내용이 통합. 강 주변 지형, 화산 활동을 통합적으로 이해하도록 지도. 흙, 바닷가 주변 지형 내용은 삭제.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="p-4 border border-red-300 rounded-lg bg-red-50">
+                    <h3 class="text-xl font-semibold mb-3 text-red-700">🆘 보충 학습 필요 단원 (2022 개정 3학년 내용 중)</h3>
+                    <p class="mb-4 text-sm text-red-600">2015 개정 3학년 과정에서는 배우지 않았으나, 2022 개정 교육과정의 학년 간 연계성을 위해 4학년 교육과정에서 결손 지도가 필요한 내용입니다. (2022 개정 3학년 단원)</p>
+                    <div class="overflow-x-auto rounded-lg shadow">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-red-200">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-red-800 uppercase tracking-wider">보충 필요 단원 (2022 개정 3학년)</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-red-800 uppercase tracking-wider">핵심 보충 내용</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-red-800 uppercase tracking-wider">보충 지도 Tip</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(1) 힘과 우리 생활</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">힘의 개념(밀기, 당기기), 물체의 무게, 간단한 도구(지레, 빗면)의 원리</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">실생활 예시와 간단한 실험/관찰 활동을 통해 힘의 개념과 도구의 편리함을 이해하도록 지도. (2015 개정 4학년 '물체의 무게' 내용 일부 포함)</td>
+                                </tr>
+                                 <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(3) 식물의 생활</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">식물의 각 부분의 생김새와 하는 일, 식물 분류</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">2015 개정 4학년 내용이 2022 개정 3학년으로 이동. 학생들이 3학년 때 2015 개정 '동물의 생활'은 배웠으나 '식물의 생활'은 4학년 내용이었으므로 보충 필요. 주변 식물 관찰 및 분류 활동 권장.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(4) 생물의 한살이</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">식물의 한살이 (동물의 한살이는 2015 개정 3학년에서 학습)</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">2015 개정 3학년 '동물의 한살이'와 4학년 '식물의 한살이'가 통합. 식물의 한살이 과정을 중심으로 보충. 씨앗 관찰, 식물 키우기 등 활동 연계.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="guidance" class="tab-content">
+                <h2 class="text-2xl font-semibold mb-6 text-center text-teal-600">2022 개정 4학년 신설/변경 단원 지도 가이드</h2>
+                <p class="text-center mb-8 text-gray-700">2022 개정 교육과정 4학년에서 새롭게 도입되거나 주요 내용이 변경된 단원에 대한 지도 강조점입니다.</p>
+                <div class="space-y-6">
+                    <div class="p-4 border border-sky-300 rounded-lg bg-sky-50">
+                        <h4 class="text-lg font-semibold text-sky-700 mb-2">(10) 물의 상태 변화</h4>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-sky-600">주요 변경:</strong> '물을 얻을 수 있는 장치 설계하기' 활동 신설.</p>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-sky-600">지도 강조점:</strong> 물의 상태 변화 개념 이해를 바탕으로 실생활 문제 해결과 관련된 창의적 설계 활동 강조. 학생들의 아이디어를 존중하고 실험을 통해 검증하는 과정 중시.</p>
+                    </div>
+                    <div class="p-4 border border-lime-300 rounded-lg bg-lime-50">
+                        <h4 class="text-lg font-semibold text-lime-700 mb-2">(12) 다양한 생물과 우리 생활</h4>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-lime-600">주요 변경:</strong> 디지털 현미경 사용 추가 (5학년에서 4학년으로 이동).</p>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-lime-600">지도 강조점:</strong> 다양한 생물을 관찰하고 분류하는 활동과 함께 디지털 도구(현미경) 활용 능력 신장. 생물 다양성의 중요성과 우리 생활과의 관계 이해.</p>
+                    </div>
+                     <div class="p-4 border border-indigo-300 rounded-lg bg-indigo-50">
+                        <h4 class="text-lg font-semibold text-indigo-700 mb-2">(13) 밤하늘 관찰</h4>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-indigo-600">주요 변경:</strong> 3학년 '지구의 모습', 5학년 '태양계와 별', 6학년 '지구와 달의 운동'에서 달 관련 내용 통합. 달의 위상 변화 원인은 다루지 않음. 태양계 행성의 상대적 거리 비교 등 삭제.</p>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-indigo-600">지도 강조점:</strong> 달의 모양, 표면 관찰, 여러 날 동안 달의 모양 변화 관찰 등 실제 관찰 활동 중심. 과도한 이론 설명이나 암기 지양. 스마트 기기 활용한 관찰 자료 탐색 권장.</p>
+                    </div>
+                    <div class="p-4 border border-pink-300 rounded-lg bg-pink-50">
+                        <h4 class="text-lg font-semibold text-pink-700 mb-2">(15) 여러 가지 기체</h4>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-pink-600">주요 변경:</strong> 6학년에서 4학년으로 이동. 산소, 이산화탄소 발생 및 성질 확인 실험 내용 삭제. 기체의 무게 관련 내용 신설 (3학년에서 이동).</p>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-pink-600">지도 강조점:</strong> 우리 주변의 여러 가지 기체의 종류와 쓰임새, 기체도 무게가 있음을 이해하는 데 중점. 복잡한 실험보다는 실생활 사례와 연계한 탐구 활동 권장.</p>
+                    </div>
+                    <div class="p-4 border border-emerald-300 rounded-lg bg-emerald-50">
+                        <h4 class="text-lg font-semibold text-emerald-700 mb-2">(16) 기후변화와 우리 생활 (과학과 사회 신설)</h4>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-emerald-600">신설 단원 (과학과 사회 영역)</strong></p>
+                        <p class="text-sm text-gray-600"><strong class="font-medium text-emerald-600">지도 강조점:</strong> 기후변화의 현상과 우리 생활에 미치는 영향 이해. 기후변화 대응을 위한 생활 속 실천 방안 토의 및 실천 다짐. 사회적 문제에 대한 과학적 탐구와 해결 노력의 중요성 인식.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-12 pt-8 border-t border-gray-300 text-center text-sm text-gray-500">
+            <p>&copy; 2025 양산교육지원청. All rights reserved.</p>
+            <p class="mt-1">본 자료는 교육부 및 경상남도교육청의 2022 개정 교육과정(과학) 관련 자료 및 Gemini 등을 활용하여 교육과정 컨설팅을 위해 제작되었습니다.</p>
+        </footer>
+    </div>
+
+    <script>
+        function openTab(event, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" border-blue-500 text-blue-600", " border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.className = event.currentTarget.className.replace(" border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300", " border-blue-500 text-blue-600");
+        }
+        // Open the first tab by default
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.tab-button').click();
+        });
+    </script>
+</body>
+</html>
